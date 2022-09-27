@@ -9,9 +9,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          
+          <li th:if="${activePage == 'home'}" class="nav-item">
+            <a class="nav-link active" th:href="@{/?activePage=home}">Home</a>
           </li>
+          <li th:unless="${activePage == 'home'}" class="nav-item">
+              <a class="nav-link" th:href="@{/?activePage=home}">Home</a>
+          </li>
+
+          <li th:if="${activePage == 'personen'}" class="nav-item">
+            <a class="nav-link active" th:href="@{/personen}">Personen</a>
+          </li>
+          <li th:unless="${activePage == 'personen'}" class="nav-item">
+              <a class="nav-link" th:href="@{/personen}">Personen</a>
+          </li>
+
+
         </ul>
       </div>
     </div>
