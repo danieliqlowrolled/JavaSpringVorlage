@@ -1,4 +1,4 @@
-package gymhum.de.models;
+package gymhum.de.model;
 
 public class Person {
     

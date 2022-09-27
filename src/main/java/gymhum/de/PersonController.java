@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-// Hier wird das Model Person importiert!
-import gymhum.de.models.Person;
+import gymhum.de.model.Person;
 
 @Controller
 public class PersonController {
@@ -75,7 +74,7 @@ public class PersonController {
 
     // Eine neue Person wird hinzugefügt. Die Daten kommen aus dem Formular aus der personen_add_prep.html-Seite.
     @RequestMapping("/updateperson")
-    public String updatePerson( @RequestParam(name="id", required = true) int id, @RequestParam(name="personVorname", required = true, defaultValue = "null") String personVorname, @RequestParam(name="personNachname", required = true, defaultValue = "null") String personNachname, @RequestParam(name="personAlter", required = true, defaultValue = "null") int personAlter, @RequestParam(name="activePage", required = false, defaultValue = "personen_add") String activePage, Model model){
+    public String updatePerson(@RequestParam(name="personVorname", required = true, defaultValue = "null") String personVorname, @RequestParam(name="personNachname", required = true, defaultValue = "null") String personNachname, @RequestParam(name="personAlter", required = true, defaultValue = "null") int personAlter, @RequestParam(name="id", required = true) int id, @RequestParam(name="activePage", required = false, defaultValue = "personen_add") String activePage, Model model){
         Person person = getPerson(id);
         person.setAlter(personAlter);
         person.setNachname(personNachname);
