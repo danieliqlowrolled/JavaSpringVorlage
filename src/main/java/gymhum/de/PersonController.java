@@ -21,6 +21,7 @@ public class PersonController {
         getPersonen().add(new Person("Bernd", "Schmidt", 55));
         getPersonen().add(new Person("Lisbeth", "Zalander", 21));
         getPersonen().add(new Person("Ulf", "Friedrichs", 22));
+        getPersonen().add(new Person("Ulf", "Friedrichs", 22));
     }
 
     // MAPPINGS
@@ -63,7 +64,7 @@ public class PersonController {
         return "redirect:/personen";
     }
 
-    // Die Person wird gelöscht und anschließend geht es zur Tabellenansicht zurück.
+    // Die zu ändernde Person wird geladen und an die View weitergegeben.
     @GetMapping("/updatepersonprep")
     public String updatePersonPrep(@RequestParam(name="activePage", required = false, defaultValue = "personen_update") String activePage, @RequestParam(name="id", required = true) int id, Model model){
         model.addAttribute("person", getPerson(id));
